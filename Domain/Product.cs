@@ -14,6 +14,7 @@ namespace Domain
         public double Price { get; set; }
         public int ProductId { get; set; }
         public int Quantity { get; set; }
+        public string Image { get; set; }
         public int? categorieId { get; set; }
         public virtual Category category { get; set; }
         public virtual ICollection<Provider> providers  { get; set; }
