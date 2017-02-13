@@ -49,7 +49,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\AdressConfiguration.cs" />
+    <Compile Include="Configuration\CategoryConfiguration.cs" />
+    <Compile Include="Configuration\ProductConfiguration.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Infrastructures\DataBaseFactory.cs" />
+    <Compile Include="Infrastructures\Disposible.cs" />
+    <Compile Include="Infrastructures\IDataBaseFactory.cs" />
+    <Compile Include="Infrastructures\IRepositoryBase.cs" />
+    <Compile Include="Infrastructures\IUnitofWork.cs" />
+    <Compile Include="Infrastructures\RepositoryBase.cs" />
+    <Compile Include="Infrastructures\UnitofWork.cs" />
+    <Compile Include="Migrations\201702040908354_InitialCreate.cs" />
+    <Compile Include="Migrations\201702040908354_InitialCreate.Designer.cs">
+      <DependentUpon>201702040908354_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702041016111_modifProduct.cs" />
+    <Compile Include="Migrations\201702041016111_modifProduct.Designer.cs">
+      <DependentUpon>201702041016111_modifProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702041051038_complextypeAdress.cs" />
+    <Compile Include="Migrations\201702041051038_complextypeAdress.Designer.cs">
+      <DependentUpon>201702041051038_complextypeAdress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702060912281_ModifiData.cs" />
+    <Compile Include="Migrations\201702060912281_ModifiData.Designer.cs">
+      <DependentUpon>201702060912281_ModifiData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702061044346_ModifiDataConf.cs" />
+    <Compile Include="Migrations\201702061044346_ModifiDataConf.Designer.cs">
+      <DependentUpon>201702061044346_ModifiDataConf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702061049105_ModifiDataConfCat.cs" />
+    <Compile Include="Migrations\201702061049105_ModifiDataConfCat.Designer.cs">
+      <DependentUpon>201702061049105_ModifiDataConfCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +97,27 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201702040908354_InitialCreate.resx">
+      <DependentUpon>201702040908354_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702041016111_modifProduct.resx">
+      <DependentUpon>201702041016111_modifProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702041051038_complextypeAdress.resx">
+      <DependentUpon>201702041051038_complextypeAdress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702060912281_ModifiData.resx">
+      <DependentUpon>201702060912281_ModifiData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702061044346_ModifiDataConf.resx">
+      <DependentUpon>201702061044346_ModifiDataConf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702061049105_ModifiDataConfCat.resx">
+      <DependentUpon>201702061049105_ModifiDataConfCat.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

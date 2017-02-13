@@ -14,6 +14,7 @@ namespace Client
         static void Main(string[] args)
         {
             Context ctxt = new Context();
+            
             Category cat = new Category
             {
                 Name = "Category1",

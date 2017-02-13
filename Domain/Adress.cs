@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-  public  class Chemical:Product
+     public class Adress
     {
+        public string StreetAddress { get; set; }
+        public string City { get; set; }
 
-
-        public string LabName { get; set; }
-        public Adress MyAdress { get; set; }
     }
 }
