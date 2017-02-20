@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data.Infrastructures
 {
-       public class DataBaseFactory : IDataBaseFactory
+       public class DataBaseFactory : Disposable,IDataBaseFactory
     {
         private Context context;
         public Context Mycontext
@@ -23,6 +23,12 @@ namespace Data.Infrastructures
     {
         context = new Context(); 
     }
+
+        protected override void DisposeCore()
+        {
+            if (context != null)
+                context.Dispose();
+        }
 
     }
 }

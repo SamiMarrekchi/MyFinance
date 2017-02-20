@@ -1,5 +1,6 @@
-﻿using Data;
+﻿
 using Domain;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,24 @@ namespace Client
        
         static void Main(string[] args)
         {
-            Context ctxt = new Context();
-            
-            Category cat = new Category
+
+            Product prd = new Product()
             {
-                Name = "Category1",
+                Name = "chemise",
+                
+                DateProd = new DateTime(2017, 02, 20),
+                Description = "desc",
+                Quantity = 250
+
 
             };
-            ctxt.Categorys.Add(cat);
-            ctxt.SaveChanges();
-            System.Console.WriteLine("sauvgarde reussie");
+            MyService service = new MyService();
+            service.createProduct(prd);
+
+            service.commit();
+
+
+            Console.WriteLine("le nombre de category est " + service.calculNbCategories());
             Console.ReadKey();
 
         }

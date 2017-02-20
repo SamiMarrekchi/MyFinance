@@ -54,7 +54,7 @@
     <Compile Include="Configuration\ProductConfiguration.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Infrastructures\DataBaseFactory.cs" />
-    <Compile Include="Infrastructures\Disposible.cs" />
+    <Compile Include="Infrastructures\Disposable.cs" />
     <Compile Include="Infrastructures\IDataBaseFactory.cs" />
     <Compile Include="Infrastructures\IRepositoryBase.cs" />
     <Compile Include="Infrastructures\IUnitofWork.cs" />

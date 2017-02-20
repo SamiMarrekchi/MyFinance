@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Data.Infrastructures
 {
-    public interface IDataBaseFactory
+    public interface IDataBaseFactory:IDisposable
     {
        
-
-
          Context Mycontext { get;  }
     }
 }

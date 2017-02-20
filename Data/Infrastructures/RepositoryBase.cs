@@ -3,23 +3,28 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Data.Infrastructures
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-
-        private Context ctxt;
-    
+        private IDataBaseFactory dbFactory;
+        private Context context;
         readonly IDbSet<T> dbset;
-        public RepositoryBase(Context ctxt) {
-            this.ctxt = ctxt;
-            dbset = ctxt.Set<T>();
-        }
 
-        public void commit() { ctxt.SaveChanges(); }
+
+        public Context MyContext { get { return dbFactory.Mycontext; } }
+        public RepositoryBase(IDataBaseFactory dbFactory) {
+            this.dbFactory = dbFactory;
+            dbset = MyContext.Set<T>();
+        }
+       
+
+      
+       
+
+        public void commit() { context.SaveChanges(); }
         public void create(T entity)
         {
             dbset.Add(entity);
@@ -46,30 +51,32 @@ namespace Data.Infrastructures
             return dbset.Where(condition).First();
         }
 
-        public IEnumerable<T> getByCondition(Expression<Func<T, bool>> condition, Expression<Func<T, bool>> orderby)
+        public IEnumerable<T> getByCondition(Expression<Func<T, bool>> condition = null, Expression<Func<T, bool>> orderBy = null)
         {
-           
-           
-       
-            return dbset.Where(condition).OrderBy(orderby) ;
-
-
+            if (condition == null && orderBy == null)
+                return dbset;
+            else if (condition != null && orderBy == null)
+                return dbset.Where(condition);
+            else if (condition == null && orderBy != null)
+                return dbset.OrderBy(orderBy);
+            else return dbset.Where(condition).OrderBy(orderBy);
         }
+
 
         public T getById(int id)
         {
-            throw new NotImplementedException();
+            return dbset.Find(id);
         }
 
         public T getById(string id)
         {
-            throw new NotImplementedException();
+            return dbset.Find(id);
         }
 
         public void update(T entity)
         {
             dbset.Attach(entity);
-            ctxt.Entry(entity).State = EntityState.Modified;
+            context.Entry(entity).State = EntityState.Modified;
 
         }
     }
