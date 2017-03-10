@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -32,6 +32,7 @@ namespace Domain
 
         [ForeignKey("categorieId")]
         public virtual Category category { get; set; }
+        
         public virtual ICollection<Provider> providers  { get; set; }
 
     }
