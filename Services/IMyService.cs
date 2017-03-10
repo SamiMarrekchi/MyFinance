@@ -12,6 +12,8 @@ namespace Services
     {
 
          void createProduct(Product P);
-         int calculNbCategories();
+        void createBiological(Biological P);
+        int calculNbCategories();
+        void commit();
     }
 }

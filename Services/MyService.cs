@@ -32,6 +32,10 @@ namespace Services
         {
             unitOfWork.getRepository<Product>().create(P);
         }
+        public void createBiological(Biological P)
+        {
+            unitOfWork.getRepository<Biological>().create(P);
+        }
 
         public void commit()
         {
